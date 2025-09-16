@@ -41,7 +41,7 @@ const HeroSection = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="w-full px-4 py-3 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-500 pr-10" // Added pr-10
+                className="w-full px-4 py-3 border border-gray-300 rounded-l-md focus:outline-none focus:ring-0 focus:ring-green-500 pr-10" // Added pr-10
               />
             </div>
             <button className="bg-green-600 text-white px-6 py-3 rounded-r-md hover:bg-green-700 transition-colors">
