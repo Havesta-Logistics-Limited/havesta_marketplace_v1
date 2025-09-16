@@ -129,7 +129,7 @@ const StoreProductCard = ({
   );
 
   return (
-    <div className="bg-white rounded-lg border border-gray-100 hover:shadow-lg transition-shadow duration-200 relative group">
+    <div className="bg-white rounded-lg border border-gray-100  transform hover:shadow-green-300 hover:shadow-lg transition-shadow duration-200 relative group">
       {/* Badges & Favorite */}
       {!product.inStock && <OutOfStockBadge />}
       {product.inStock && (

@@ -34,7 +34,7 @@ const CategorySection = ({
       style={{ minHeight: "300px" }}
     >
       {products.map((product) => (
-        <div key={`${title}-${product.id}`} className="cursor-default">
+        <div key={`${title}-${product.id}`} className="cursor-default ">
           <StoreProductCard
             product={product}
             isFavorite={favorites.has(product.id)}

@@ -4,7 +4,7 @@ import pattern from "../assets/pattern.png";
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full h-[500px] bg-[#E3F9EC] ">
+    <section className="relative w-full h-[500px] bg-[#E3F9EC]  ">
       {/* Pattern Layer */}
       <div
         className="absolute inset-0"
@@ -41,23 +41,22 @@ const HeroSection = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="w-full px-4 py-3 border border-gray-300 rounded-l-md focus:outline-none focus:ring-0 focus:ring-green-500 pr-10" // Added pr-10
+                className="w-[300px] px-4 py-3 border-[3px] border-transparent shadow-sm rounded-l-md outline-none  pr-10  focus:border-green-400 " // Added pr-10
               />
             </div>
-            <button className="bg-green-600 text-white px-6 py-3 rounded-r-md hover:bg-green-700 transition-colors">
+            <button className="bg-green-600   text-white px-6 py-3.5 rounded-r-md hover:bg-green-700 transition-colors">
               Subscribe
             </button>
           </div>
         </div>
-
-        {/* Right: Fruit Image */}
-        <div className="lg:w-1/2 flex justify-center">
-          <img
-            src="/src/assets/heroimg.svg"
-            alt="Fresh fruits and vegetables"
-            className="w-full max-w-lg h-auto mt-[-90px] mr-[-400px]"
-          />
-        </div>
+      </div>
+      {/* Right: Fruit Image  made corrections here */}
+      <div className=" absolute -right-16 top-0">
+        <img
+          src="/src/assets/heroimg.svg"
+          alt="Fresh fruits and vegetables"
+          className=" w-[90%]"
+        />
       </div>
     </section>
   );

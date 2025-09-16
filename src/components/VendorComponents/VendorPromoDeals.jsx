@@ -192,7 +192,7 @@ const PromoDealsSection = () => {
           {products.map((product) => (
             <div
               key={product.id}
-              className="relative bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md flex flex-col"
+              className="relative bg-white rounded-lg cursor-pointer  overflow-hidden transition-all duration-300 hover:shadow-green-300 hover:shadow-lg  flex flex-col"
               style={{ width: "229.09px", height: "388.5px" }}
             >
               <div
