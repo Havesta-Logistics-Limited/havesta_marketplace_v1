@@ -43,12 +43,12 @@ const SuggestionsList = ({ suggestions, onSelect }) => {
   );
 };
 
-// Delivery address input with autocomplete
+// AddressInput
 const AddressInput = ({ value, setValue, setMarker }) => {
   const [suggestions, setSuggestions] = useState([]);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(""); //  for fetching
 
-  // Debounce timer
+  // fetch suggestions when typing
   useEffect(() => {
     if (!query || query.length <= 3) {
       setSuggestions([]);
@@ -67,7 +67,7 @@ const AddressInput = ({ value, setValue, setMarker }) => {
       } catch (err) {
         console.error("Autocomplete fetch failed", err);
       }
-    }, 500); // 500ms debounce
+    }, 500);
 
     return () => clearTimeout(handler);
   }, [query]);
@@ -80,9 +80,12 @@ const AddressInput = ({ value, setValue, setMarker }) => {
       <input
         type="text"
         placeholder="Delivery Address"
-        value={query || value}
-        onChange={(e) => setQuery(e.target.value)}
-        className="border rounded-lg p-2 w-full pl-10 text-sm placeholder:text-green-700/30 "
+        value={value}
+        onChange={(e) => {
+          setValue(e.target.value);
+          setQuery(e.target.value);
+        }}
+        className="border rounded-lg p-2 w-full pl-10 text-sm placeholder:text-green-700/30"
       />
 
       {suggestions.length > 0 && (
@@ -95,7 +98,6 @@ const AddressInput = ({ value, setValue, setMarker }) => {
                 setValue(s.display_name);
                 setMarker({ lat: parseFloat(s.lat), lng: parseFloat(s.lon) });
                 setSuggestions([]);
-                setQuery(s.display_name);
               }}
             >
               {s.display_name}
@@ -217,7 +219,7 @@ const NewAddressForm = ({ setAddresses, addresses, setStep }) => {
         <MapContainer
           center={marker}
           zoom={13}
-          style={{ height: "100%", width: "100%", borderRadius: "12px" }}
+          className="h-full w-full rounded-xl"
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

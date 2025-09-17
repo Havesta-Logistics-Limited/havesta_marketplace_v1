@@ -41,8 +41,10 @@ function ProductCard({
           {discount && (
             <div
               className={`absolute top-3 left-3 ${
-                isUnavailable ? "bg-white text-black" : "bg-yellow-500"
-              } text-white text-xs font-semibold px-2 py-1 rounded`}
+                isUnavailable
+                  ? "bg-white text-black"
+                  : "bg-yellow-500 text-black"
+              }  text-xs font-semibold px-2 py-1 rounded`}
             >
               {discount}
             </div>

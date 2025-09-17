@@ -14,7 +14,12 @@ const StoreModal = ({ product, isOpen, onClose, onAddToCart }) => {
   if (!product) return null;
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Product Details">
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      title="Product Details"
+      className="w-[900px]"
+    >
       <AnimatePresence mode="popLayout">
         <motion.div
           key={product.name}
@@ -40,14 +45,8 @@ const StoreModal = ({ product, isOpen, onClose, onAddToCart }) => {
             {/* Price and Name */}
             <div>
               <div className="flex items-center gap-2 text-2xl font-bold text-black">
-                <motion.p
-                  key={quantity} // animate price on quantity change
-                  className=""
-                  initial={{ scale: 0.9, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  ₦{(product.price * quantity).toLocaleString()}
+                <motion.p key={quantity}>
+                  ₦{product.price.toLocaleString()}
                 </motion.p>
                 <span className="text-sm text-[#FF0606] line-through">
                   ₦{product.originalPrice.toLocaleString()}
@@ -78,7 +77,12 @@ const StoreModal = ({ product, isOpen, onClose, onAddToCart }) => {
               >
                 <Minus size={16} />
               </button>
-              <span className="text-lg font-semibold">{quantity}</span>
+
+              {/* quantity display */}
+              <span className="text-lg font-semibold w-6 text-center">
+                {quantity}
+              </span>
+
               <button
                 onClick={() => setQuantity(quantity + 1)}
                 className="w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center"
@@ -86,13 +90,12 @@ const StoreModal = ({ product, isOpen, onClose, onAddToCart }) => {
                 <Plus size={16} />
               </button>
 
-              {/* Add to Cart Button */}
               <motion.button
                 onClick={() => {
                   onAddToCart({ ...product, quantity });
                   onClose();
                 }}
-                className="w-[120px] bg-green-500 text-white py-3 rounded-full font-semibold"
+                className="w-[140px] bg-green-500 text-white py-3 rounded-full font-semibold text-sm truncate"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

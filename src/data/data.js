@@ -2,7 +2,7 @@ import woman from "../assets/woman.svg";
 import man from "../assets/man.svg";
 import lady from "../assets/lady.svg";
 import veggiewoman from "../assets/veggiewoman.svg";
-// import chicken from "../assets/chicken.svg";
+// import chicken from "../assets/chicken.svg"
 // import dryvegetable from "../assets/dryvegetable.svg";
 // import apple from "../assets/apple.svg";
 import tubers from "../assets/tubers.svg";

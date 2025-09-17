@@ -48,7 +48,7 @@ const ProductImage = ({ product }) => (
           <Bell
             size={40}
             fill="#ffffff"
-            className="border-2 rounded-full p-2"
+            className="border-2  rounded-full p-2"
           />
           <p>NOTIFY ME</p>
         </div>

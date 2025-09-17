@@ -34,8 +34,8 @@ const HeroSection = () => {
           </p>
 
           {/* Email Subscription Form */}
-          <div className="flex flex-col sm:flex-row max-w-md items-center">
-            <div className="relative flex-1">
+          <div className="flex flex-col sm:flex-row max-w-md items-center  b">
+            <div className="relative flex ">
               {" "}
               {/* Relative container */}
               <input
