@@ -8,7 +8,7 @@ import {
   useMap,
 } from "react-leaflet";
 import { PiHouseLine, PiNavigationArrow } from "react-icons/pi";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, MapPin, Loader2 } from "lucide-react";
 import L from "leaflet";
 
 import "leaflet/dist/leaflet.css";
@@ -24,6 +24,124 @@ L.Marker.prototype.options.icon = DefaultIcon;
 // ===================
 // Subcomponents
 // ===================
+
+// Current Location Button
+const CurrentLocationButton = ({ setMarker, setAddress }) => {
+  const [loading, setLoading] = useState(false);
+
+  const getCurrentLocation = () => {
+    // Check if geolocation is supported
+    if (!navigator.geolocation) {
+      alert("Geolocation is not supported by this browser.");
+      return;
+    }
+
+    setLoading(true);
+
+    const options = {
+      enableHighAccuracy: true,
+      timeout: 15000, // Increased timeout
+      maximumAge: 60000, // Cache for 1 minute
+    };
+
+    console.log("Requesting geolocation...");
+
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        console.log("Geolocation success:", position);
+        const { latitude, longitude } = position.coords;
+        setMarker({ lat: latitude, lng: longitude });
+
+        // Check if API key is available
+        const apiKey = import.meta.env.VITE_LOCATIONIQ_KEY;
+        if (!apiKey) {
+          console.error("LocationIQ API key is missing");
+          alert(
+            "Location service configuration error. Please contact support."
+          );
+          setLoading(false);
+          return;
+        }
+
+        // Reverse geocode to get address
+        try {
+          console.log("Attempting reverse geocoding...");
+          const res = await fetch(
+            `https://us1.locationiq.com/v1/reverse.php?key=${apiKey}&lat=${latitude}&lon=${longitude}&format=json`
+          );
+
+          if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+          }
+
+          const data = await res.json();
+          console.log("Reverse geocoding result:", data);
+
+          if (data?.display_name) {
+            setAddress(data.display_name);
+          } else if (data?.error) {
+            console.error("LocationIQ error:", data.error);
+            setAddress(
+              `Location: ${latitude.toFixed(6)}, ${longitude.toFixed(6)}`
+            );
+          }
+        } catch (err) {
+          console.error("Reverse geocoding failed:", err);
+          // Still set the coordinates even if reverse geocoding fails
+          setAddress(
+            `Location: ${latitude.toFixed(6)}, ${longitude.toFixed(6)}`
+          );
+        } finally {
+          setLoading(false);
+        }
+      },
+      (error) => {
+        setLoading(false);
+        console.error("Geolocation error:", error);
+
+        let errorMessage = "Unable to retrieve your location.";
+
+        switch (error.code) {
+          case error.PERMISSION_DENIED:
+            errorMessage =
+              "Location access denied. Please enable location permissions in your browser settings and try again.";
+            console.log("User denied location permission");
+            break;
+          case error.POSITION_UNAVAILABLE:
+            errorMessage =
+              "Location information is unavailable. Please check your internet connection and GPS settings.";
+            console.log("Location unavailable");
+            break;
+          case error.TIMEOUT:
+            errorMessage = "Location request timed out. Please try again.";
+            console.log("Location request timed out");
+            break;
+          default:
+            console.log("Unknown geolocation error:", error);
+        }
+
+        alert(errorMessage);
+      },
+      options
+    );
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={getCurrentLocation}
+      disabled={loading}
+      className="flex items-center justify-center gap-2 px-3 py-2 bg-green-600 text-white text-sm rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+    >
+      {loading ? (
+        <Loader2 size={16} className="animate-spin" />
+      ) : (
+        <MapPin size={16} />
+      )}
+      {loading ? "Getting Location..." : "Use Current Location"}
+    </button>
+  );
+};
 
 // Suggestions dropdown
 const SuggestionsList = ({ suggestions, onSelect }) => {
@@ -117,7 +235,7 @@ const NotesInput = ({ value, setValue }) => (
     </span>
     <input
       type="text"
-      placeholder="Floor, Door, Notes"
+      placeholder="Floor / Door"
       value={value}
       onChange={(e) => setValue(e.target.value)}
       className="border rounded-lg p-2 w-full pl-10 text-sm  placeholder:text-green-700/30"
@@ -194,9 +312,21 @@ const NewAddressForm = ({ setAddresses, addresses, setStep }) => {
         </button>
 
         <form className="flex flex-col gap-3 flex-1" onSubmit={handleSubmit}>
-          <p className="text-xs text-green-600 text-left  font-bold">
-            ** Enter address manually or pick a location on the map
+          {/* Current Location Button */}
+          <CurrentLocationButton
+            setMarker={setMarker}
+            setAddress={setDeliveryAddress}
+          />
+
+          <div className="flex items-center gap-2 my-2">
+            <div className="flex-1 border-t border-gray-300"></div>
+            <span className="text-xs text-gray-500 px-2">OR</span>
+            <div className="flex-1 border-t border-gray-300"></div>
+          </div>
+          <p className="text-xs text-green-600 text-center font-bold">
+            Enter address manually or pick a location on the map
           </p>
+
           <AddressInput
             value={deliveryAddress}
             setValue={setDeliveryAddress}
@@ -207,7 +337,7 @@ const NewAddressForm = ({ setAddresses, addresses, setStep }) => {
 
           <button
             type="submit"
-            className=" bg-green-600 text-white rounded-lg py-2 hover:bg-green-700 transition mt-[80px]"
+            className="bg-green-600 text-white rounded-lg py-2 hover:bg-green-700 transition mt-[60px]"
           >
             Confirm Address
           </button>
