@@ -1,7 +1,7 @@
 import { ArrowLeft, MapPin, Plus } from "lucide-react";
 import Modal from "./Modal";
 import { useState } from "react";
-import NewAddressForm from "../VendorComponents/NewAddressForm";
+import NewAddressForm from "../../pages/Vendor/components/NewAddressForm";
 // eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from "framer-motion";
 

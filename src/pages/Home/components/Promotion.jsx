@@ -1,6 +1,7 @@
 import { useState } from "react";
-import ProductCard from "./ProductCard";
-import { promotions } from "../data/data";
+import ProductCard from "../../../components/VendorCard";
+import { promotions } from "../../../data/data";
+import VendorCard from "../../../components/VendorCard";
 
 export default function Promotion() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -76,7 +77,7 @@ export default function Promotion() {
             {promotions
               .slice(currentIndex, currentIndex + 3)
               .map((item, idx) => (
-                <ProductCard key={currentIndex + idx} {...item} />
+                <VendorCard key={currentIndex + idx} {...item} />
               ))}
           </div>
         </div>

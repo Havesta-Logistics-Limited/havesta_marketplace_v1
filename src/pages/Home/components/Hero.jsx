@@ -1,6 +1,5 @@
 // src/components/HeroBackground.jsx
-import React from "react";
-import pattern from "../assets/pattern.png";
+import pattern from "../../../assets/pattern.png";
 
 const HeroSection = () => {
   return (
@@ -41,9 +40,8 @@ const HeroSection = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-
                 className="w-full px-4 py-3  rounded-l-md focus:outline-none focus:ring-0 focus:ring-green-500 pr-10"
-/>
+              />
             </div>
             <button className="bg-green-600   text-white px-6 py-3.5 rounded-r-md hover:bg-green-700 transition-colors">
               Subscribe
