@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { Search } from "lucide-react";
-import { vendors } from "../data/data";
-import ProductCard from "./ProductCard";
+import { vendors } from "../../../data/data";
+import VendorCard from "../../../components/VendorCard";
 
 export default function Vendors() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -55,7 +55,7 @@ export default function Vendors() {
         {/* Vendors Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {displayedVendors.map((vendor) => (
-            <ProductCard
+            <VendorCard
               key={vendor.id}
               {...vendor}
               onToggleFavorite={handleToggleFavorite}

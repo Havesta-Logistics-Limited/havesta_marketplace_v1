@@ -1,8 +1,8 @@
 import React from "react";
-import roundwoman from "../../assets/roundwoman.svg";
-import whitecar from "../../assets/whitecar.svg";
-import whiteclock from "../../assets/whiteclock.svg";
-import pattern from "../../assets/pattern.png";
+import roundwoman from "../../../assets/roundwoman.svg";
+import whitecar from "../../../assets/whitecar.svg";
+import whiteclock from "../../../assets/whiteclock.svg";
+import pattern from "../../../assets/pattern.png";
 import { FaStar } from "react-icons/fa";
 const Profile = () => {
   return (

@@ -1,9 +1,9 @@
 import { useState, useCallback } from "react";
-import { vendorProductData } from "../../data/data";
-import StoreProductCard from "./StoreProductCard";
-import StoreModal from "../Modals/StoreModal";
-import DeliveryModal from "../Modals/DeliveryModal";
-import { useCartStore } from "../../store/CartStore";
+import { vendorProductData } from "../../../data/data";
+import StoreProductCard from "./ProductCard";
+import StoreModal from "../../../components/Modals/StoreModal";
+import DeliveryModal from "../../../components/Modals/DeliveryModal";
+import { useCartStore } from "../../../store/CartStore";
 
 //  Floating cart indicator
 const CartIndicator = ({ totalItems, onClick }) => {

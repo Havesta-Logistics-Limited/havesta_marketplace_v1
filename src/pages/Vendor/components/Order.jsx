@@ -1,5 +1,5 @@
 import React from "react";
-import astronaut from "../../assets/astronaut.svg";
+import astronaut from "../../../assets/astronaut.svg";
 const Order = () => {
   return (
     <div className=" absolute top-36 right-24 lg:right-16 xl:right-12 2xl:right-14  ">
