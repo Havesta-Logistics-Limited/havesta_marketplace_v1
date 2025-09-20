@@ -1,8 +1,9 @@
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback } from "react";
 import { vendorProductData } from "../../data/data";
 import StoreProductCard from "./StoreProductCard";
 import StoreModal from "../Modals/StoreModal";
 import DeliveryModal from "../Modals/DeliveryModal";
+import { useCartStore } from "../../store/CartStore";
 
 //  Floating cart indicator
 const CartIndicator = ({ totalItems, onClick }) => {
@@ -49,8 +50,12 @@ const CategorySection = ({
 );
 
 const VendorCategories = () => {
+  // Cart details from Zustand
+  const addToCart = useCartStore((state) => state.addToCart);
+  const totalItems = useCartStore((state) => state.totalItems());
+
+  // Local state for favorites and modals
   const [favorites, setFavorites] = useState(new Set());
-  const [cart, setCart] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [activeModal, setActiveModal] = useState(null);
 
@@ -61,19 +66,6 @@ const VendorCategories = () => {
         ? newFavorites.delete(productId)
         : newFavorites.add(productId);
       return newFavorites;
-    });
-  }, []);
-
-  const addToCart = useCallback((product) => {
-    setCart((prev) => {
-      const existingItem = prev.find((item) => item.id === product.id);
-      return existingItem
-        ? prev.map((item) =>
-            item.id === product.id
-              ? { ...item, quantity: item.quantity + 1 }
-              : item
-          )
-        : [...prev, { ...product, quantity: 1 }];
     });
   }, []);
 
@@ -94,11 +86,6 @@ const VendorCategories = () => {
   const handleCloseDeliveryModal = useCallback(() => {
     setActiveModal(null);
   }, []);
-
-  const totalItems = useMemo(
-    () => cart.reduce((total, item) => total + item.quantity, 0),
-    [cart]
-  );
 
   return (
     <div className="max-w-7xl mx-[64px] py-6  min-h-screen">
