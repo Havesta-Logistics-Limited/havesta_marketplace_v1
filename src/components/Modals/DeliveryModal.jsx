@@ -24,7 +24,7 @@ const DeliveryModal = ({ isOpen, onClose }) => {
       title="Select a delivery address"
       className="min-w-[800px] max-h-[90vh]"
     >
-      <div className="flex flex-col h-[400px] min-w-[800px] w-full relative overflow-hidden">
+      <div className="flex flex-col h-[400px] w-full relative overflow-hidden">
         <AnimatePresence mode="popLayout">
           {step === "list" && (
             <motion.div
@@ -35,7 +35,7 @@ const DeliveryModal = ({ isOpen, onClose }) => {
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="flex flex-col h-full"
             >
-              {/* Scrollable addresses - Fixed height calculation */}
+              {/* Scrollable addresses  */}
               <div className="flex-1 overflow-y-auto pr-2 min-h-0">
                 <div className="space-y-4">
                   {addresses.map((address, index) => (
@@ -50,7 +50,7 @@ const DeliveryModal = ({ isOpen, onClose }) => {
                 </div>
               </div>
 
-              {/* Sticky footer button - Fixed positioning */}
+              {/* Sticky footer */}
               <div className="flex-shrink-0 pt-4 border-t mt-2 bg-white">
                 <button
                   onClick={() => setStep("form")}
