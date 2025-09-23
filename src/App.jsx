@@ -7,6 +7,7 @@ import Home from "./pages/Home/Home";
 
 function App() {
   return (
+<<<<<<< HEAD
     <ErrorBoundary>
       <Router>
         <Scrolltop />
@@ -33,6 +34,23 @@ function App() {
         </Routes>
       </Router>
     </ErrorBoundary>
+=======
+    <Router>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route
+            path="/m"
+            element={
+              <ErrorBoundary>
+                <Marketplace />
+              </ErrorBoundary>
+            }
+          />
+          <Route path="/" element={<Ordersummary />} />
+        </Route>
+      </Routes>
+    </Router>
+>>>>>>> 8373415 (feat: add order summary screen)
   );
 }
 
