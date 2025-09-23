@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import havesta from "../assets/havesta.svg";
-import { FaGreaterThan, FaXTwitter } from "react-icons/fa6";
+import havesta from "/images/harvestaLogo.png";
+import { FaGreaterThan, FaTiktok, FaXTwitter } from "react-icons/fa6";
 import {
   FaPhoneAlt,
   FaRegPaperPlane,
@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 import { TbMail } from "react-icons/tb";
 import { CgFacebook } from "react-icons/cg";
-import Payment from "../assets/Payment.svg";
+import Payment from "../../assets/payment.svg";
 
 const Footer = () => {
   const links = [
@@ -101,6 +101,10 @@ const Footer = () => {
       id: 3,
       icon: <FaInstagram />,
     },
+    {
+      id: 4,
+      icon: <FaTiktok />,
+    },
   ];
   return (
     // correct logo and links and socials image
@@ -110,7 +114,6 @@ const Footer = () => {
         <div className="flex flex-col ">
           <div className="flex  items-center gap-2  h-8 w-fit mb-4">
             <img src={havesta} alt="" />
-            <h1 className="font-[500] text-2xl xl:text-3xl ">Harvesta</h1>
           </div>
           <p className="font-light text-sm max-w-xs xl:text-base">
             HARVESTA prioritizes convenience and transparency, enhancing the
@@ -163,7 +166,7 @@ const Footer = () => {
             <input
               type="email"
               placeholder="Enter email address "
-              className="py-3 px-2 pl-4 w-48 text-[#444444] placeholder:text-[#444444] rounded-l-xl xl:w-60"
+              className="py-3 px-2 pl-4 w-48 text-[#444444] placeholder:text-[#444444] focus:ring-0 rounded-l-xl xl:w-60"
             />
             <div className=" bg-harvestaLightGreen  flex items-center justify-center rounded-r-md text-xl ">
               <FaRegPaperPlane className="" />
@@ -186,9 +189,9 @@ const Footer = () => {
       </div>
       {/* lower part */}
       <div className="flex items-center justify-center py-6 bg-[#00150D] ">
-        <p className="text-[#909DA4] text-sm">
-          © Copyright 2024{"  "}
-          <span className="text-white">.All Rights Reserved</span>
+        <p className="text-[#909DA4] text-sm ">
+          © Copyright 2025.{"  "}
+          <span className="text-white ml-3">All Rights Reserved</span>
         </p>
       </div>
     </div>

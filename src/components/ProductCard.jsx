@@ -16,7 +16,9 @@ function ProductCard({
 
   return (
     <Link to={"/vendorstorefront"}>
-      <div className="relative bg-white rounded-xl hover:shadow-green-300 cursor-pointer shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300">
+
+      <div className="relative bg-white rounded-xl hover:shadow-green-300 cursor-pointer shadow-md overflow-hidden hover:shadow-md transition-all duration-300">
+
         {/* Product Image */}
         <div className="relative h-48 overflow-hidden">
           <img
