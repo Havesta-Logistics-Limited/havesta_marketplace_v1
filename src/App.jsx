@@ -8,6 +8,9 @@ import Home from "./pages/Home/Home";
 function App() {
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c20c139 (FIXING CONFLICTS)
     <ErrorBoundary>
       <Router>
         <Scrolltop />
@@ -17,7 +20,11 @@ function App() {
               path="/"
               element={
                 <ErrorBoundary>
+<<<<<<< HEAD
                   <Home />
+=======
+                  <Marketplace />
+>>>>>>> c20c139 (FIXING CONFLICTS)
                 </ErrorBoundary>
               }
             />
@@ -26,7 +33,11 @@ function App() {
               path="/vendorstorefront"
               element={
                 <ErrorBoundary>
+<<<<<<< HEAD
                   <VendorPage />
+=======
+                  <VendorStoreFront />
+>>>>>>> c20c139 (FIXING CONFLICTS)
                 </ErrorBoundary>
               }
             />
@@ -34,6 +45,7 @@ function App() {
         </Routes>
       </Router>
     </ErrorBoundary>
+<<<<<<< HEAD
 =======
     <Router>
       <Routes>
@@ -51,6 +63,8 @@ function App() {
       </Routes>
     </Router>
 >>>>>>> 8373415 (feat: add order summary screen)
+=======
+>>>>>>> c20c139 (FIXING CONFLICTS)
   );
 }
 
