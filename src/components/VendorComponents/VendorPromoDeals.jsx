@@ -11,7 +11,7 @@ const PromoDealsSection = () => {
   const products = [
     {
       id: 1,
-      imageUrl: bellPepperImg, // 👈 use the import directly
+      imageUrl: bellPepperImg,
       category: "Coffe & teas",
       title: "Bell Pepper 200g",
       rating: 4.0,
@@ -26,7 +26,7 @@ const PromoDealsSection = () => {
     },
     {
       id: 2,
-      imageUrl: sausageImg, // 👈 here too
+      imageUrl: sausageImg,
       category: "Meat",
       title: "Halal Sausage 350g",
       rating: 3.0,
@@ -41,7 +41,7 @@ const PromoDealsSection = () => {
     },
     {
       id: 3,
-      imageUrl: greenTeaImg, // 👈 here
+      imageUrl: greenTeaImg,
       category: "Coffe & Teas",
       title: "Green Tea 250g",
       rating: 4.2,
@@ -56,7 +56,7 @@ const PromoDealsSection = () => {
     },
     {
       id: 4,
-      imageUrl: onionImg, // 👈 here
+      imageUrl: onionImg,
       category: "Vegetables",
       title: "Onion 1kg",
       rating: 4.0,
@@ -83,7 +83,6 @@ const PromoDealsSection = () => {
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
         let { seconds, minutes, hours, days } = prev;
-
         seconds--;
 
         if (seconds < 0) {
@@ -108,47 +107,28 @@ const PromoDealsSection = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const formatTime = (value) => {
-    return value.toString().padStart(2, "0");
-  };
+  const formatTime = (value) => value.toString().padStart(2, "0");
 
   // Star rating component
   const StarRating = ({ rating, reviewCount }) => {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
-      if (i <= Math.floor(rating)) {
-        stars.push(
-          <svg
-            key={i}
-            className="w-4 h-4 text-yellow-400 fill-current"
-            viewBox="0 0 20 20"
-          >
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.12a1 1 0 00-.363 1.118l1.519 4.674c.3.921-.755 1.688-1.538 1.118l-3.976-2.12a1 1 0 00-1.175 0l-3.976 2.12c-.783.57-1.838-.197-1.538-1.118l1.519-4.674a1 1 0 00-.363-1.118l-3.976-2.12c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-          </svg>
-        );
-      } else if (i === Math.ceil(rating)) {
-        stars.push(
-          <svg
-            key={i}
-            className="w-4 h-4 text-yellow-400 fill-current"
-            viewBox="0 0 20 20"
-          >
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.12a1 1 0 00-.363 1.118l1.519 4.674c.3.921-.755 1.688-1.538 1.118l-3.976-2.12a1 1 0 00-1.175 0l-3.976 2.12c-.783.57-1.838-.197-1.538-1.118l1.519-4.674a1 1 0 00-.363-1.118l-3.976-2.12c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-          </svg>
-        );
-      } else {
-        stars.push(
-          <svg
-            key={i}
-            className="w-4 h-4 text-gray-300 fill-current"
-            viewBox="0 0 20 20"
-          >
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.12a1 1 0 00-.363 1.118l1.519 4.674c.3.921-.755 1.688-1.538 1.118l-3.976-2.12a1 1 0 00-1.175 0l-3.976 2.12c-.783.57-1.838-.197-1.538-1.118l1.519-4.674a1 1 0 00-.363-1.118l-3.976-2.12c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-          </svg>
-        );
-      }
+      stars.push(
+        <svg
+          key={i}
+          className={`w-4 h-4 ${
+            i <= Math.floor(rating)
+              ? "text-yellow-400"
+              : i === Math.ceil(rating)
+              ? "text-yellow-400"
+              : "text-gray-300"
+          } fill-current`}
+          viewBox="0 0 20 20"
+        >
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.12a1 1 0 00-.363 1.118l1.519 4.674c.3.921-.755 1.688-1.538 1.118l-3.976-2.12a1 1 0 00-1.175 0l-3.976 2.12c-.783.57-1.838-.197-1.538-1.118l1.519-4.674a1 1 0 00-.363-1.118l-3.976-2.12c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+        </svg>
+      );
     }
-
     return (
       <div className="flex items-center space-x-1 text-sm text-gray-500">
         <div className="flex">{stars}</div>
@@ -157,16 +137,15 @@ const PromoDealsSection = () => {
     );
   };
 
-  // Add to cart button with hover effect
+  // Add to cart button
   const AddToCartButton = ({ onClick, disabled, className }) => {
-    // Modify this line
     return (
       <button
         onClick={onClick}
         disabled={disabled}
-        className={`mx-auto mb-3 w-3/4 flex items-center gap-2 justify-center px-3 py-1.5 bg-green-600 text-white text-sm font-medium rounded-md transition-all duration-200 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" ${
+        className={`mx-auto mb-3 w-4/5 flex items-center gap-2 justify-center px-3 py-1.5 bg-green-600 text-white text-sm font-medium rounded-md transition-all duration-200 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 ${
           disabled ? "opacity-50 cursor-not-allowed" : ""
-        } ${className}`} // And this line
+        } ${className}`}
       >
         <ShoppingCart className="w-4 h-4" />
         <span>Add to Cart</span>
@@ -175,11 +154,10 @@ const PromoDealsSection = () => {
   };
 
   return (
-    <section className="py-8  sm:px-[64px] ">
+    <section className="py-8 sm:px-[64px]">
+      {/* Header */}
       <div className="mb-8">
         <div className="flex items-center gap-3">
-          {" "}
-          {/* <- change here */}
           <h2 className="text-xl font-bold text-gray-900">Promo Deals</h2>
           <div className="bg-red-600 text-white px-3 py-1 rounded-md text-sm font-medium">
             Expires in: {formatTime(timeLeft.hours)}:
@@ -194,38 +172,25 @@ const PromoDealsSection = () => {
           {products.map((product) => (
             <div
               key={product.id}
-              className="relative bg-white rounded-lg cursor-pointer  overflow-hidden transition-all duration-300 hover:shadow-green-300 hover:shadow-lg  flex flex-col"
-              style={{ width: "229.09px", height: "388.5px" }}
+              className="relative bg-white rounded-lg cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-green-300 hover:shadow-lg flex flex-col w-full h-[400px]"
             >
-              <div
-                key={product.id}
-                className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md flex flex-col" // Added flex and flex-col
-                style={{ width: "229.09px", height: "388.5px" }}
-              >
-                {/* Image Container */}
-                <div className="relative h-48 w-full bg-white-100 overflow-hidden">
+              {/* Card content */}
+              <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md flex flex-col w-full h-full">
+                {/* Image */}
+                <div className="relative h-48 w-full bg-white overflow-hidden">
                   <img
                     src={product.imageUrl}
                     alt={product.title}
-                    className="w-full h-full object-cover"
-                    style={{
-                      width: "200%",
-                      height: "107%",
-                      objectFit: "contain",
-                    }}
+                    className="w-full h-full object-contain"
                   />
-
-                  {/* Save Badge */}
                   {product.discount > 0 && (
                     <div className="absolute top-1 left-1 bg-yellow-400 text-white text-xs font-bold px-2 py-1 rounded-md z-10">
                       Save {product.discount}%
                     </div>
                   )}
                 </div>
-                {/* Product Info */}
+                {/* Info */}
                 <div className="p-4 flex-grow">
-                  {" "}
-                  {/* Added flex-grow */}
                   <div className="text-xs text-gray-500 mb-1">
                     {product.category}
                   </div>
@@ -247,7 +212,7 @@ const PromoDealsSection = () => {
                       ₦{product.oldPrice}
                     </span>
                   </div>
-                  {/* Progress Bar */}
+                  {/* Progress */}
                   <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
                     <div
                       className="bg-green-600 h-2 rounded-full transition-all duration-300"
@@ -259,10 +224,11 @@ const PromoDealsSection = () => {
                   <div className="text-xs text-gray-500 mb-4">
                     Sold: {product.sold}/{product.total}
                   </div>
-                </div>{" "}
-                {/* Product Info End */}
+                </div>
                 <AddToCartButton
-                  onClick={() => console.log(`Added ${product.title} to cart`)}
+                  onClick={() =>
+                    console.log(`Added ${product.title} to cart`)
+                  }
                   disabled={!product.inStock}
                 />
               </div>
@@ -275,20 +241,17 @@ const PromoDealsSection = () => {
           <div
             className="relative bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-lg shadow-sm border border-yellow-200"
             style={{
-              backgroundImage: `url(${pattern})`, // Use the imported pattern
+              backgroundImage: `url(${pattern})`,
               backgroundSize: "200px",
               backgroundPosition: "center",
             }}
           >
-            {/*overlay */}
             <div className="absolute inset-0 bg-amber-200 opacity-70"></div>
-
             <div className="relative z-10 text-center">
               <h3 className="text-2xl font-bold text-gray-900 mb-2">10% OFF</h3>
               <p className="text-sm text-gray-700 mb-4">
                 For new member that registers for the first time
               </p>
-
               <button className="w-full bg-green-600 text-white font-medium px-4 py-3 rounded-md hover:bg-green-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
                 Register Now
               </button>

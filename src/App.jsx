@@ -2,26 +2,37 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Marketplace from "./pages/Marketplace";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Layout from "./components/Layout";
-import VendorStoreFront from "./pages/Ordersummary";
-import Ordersummary from "./pages/Ordersummary";
+import VendorStoreFront from "./pages/VendorStoreFront";
+import Scrolltop from "./pages/Scrolltop";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route
-            path="/m"
-            element={
-              <ErrorBoundary>
-                <Marketplace />
-              </ErrorBoundary>
-            }
-          />
-          <Route path="/" element={<Ordersummary />} />
-        </Route>
-      </Routes>
-    </Router>
+    <ErrorBoundary>
+      <Router>
+        <Scrolltop />
+        <Routes>
+          <Route element={<Layout />}>
+            <Route
+              path="/"
+              element={
+                <ErrorBoundary>
+                  <Marketplace />
+                </ErrorBoundary>
+              }
+            />
+
+            <Route
+              path="/vendorstorefront"
+              element={
+                <ErrorBoundary>
+                  <VendorStoreFront />
+                </ErrorBoundary>
+              }
+            />
+          </Route>
+        </Routes>
+      </Router>
+    </ErrorBoundary>
   );
 }
 
