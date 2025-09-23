@@ -7,21 +7,32 @@ import Layout from "./components/common/Layout";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route
-            path="/m"
-            element={
-              <ErrorBoundary>
-                <Marketplace />
-              </ErrorBoundary>
-            }
-          />
-          <Route path="/" element={<Ordersummary />} />
-        </Route>
-      </Routes>
-    </Router>
+    <ErrorBoundary>
+      <Router>
+        <Scrolltop />
+        <Routes>
+          <Route element={<Layout />}>
+            <Route
+              path="/"
+              element={
+                <ErrorBoundary>
+                  <Marketplace />
+                </ErrorBoundary>
+              }
+            />
+
+            <Route
+              path="/vendorstorefront"
+              element={
+                <ErrorBoundary>
+                  <VendorStoreFront />
+                </ErrorBoundary>
+              }
+            />
+          </Route>
+        </Routes>
+      </Router>
+    </ErrorBoundary>
   );
 }
 

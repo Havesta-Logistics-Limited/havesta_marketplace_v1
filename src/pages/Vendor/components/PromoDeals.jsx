@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import pattern from "../../../assets/pattern.png";
-import bellPepperImg from "../../../assets/bellpepper.svg";
-import sausageImg from "../../../assets/sausage.svg";
-import greenTeaImg from "../../../assets/greentea.svg";
-import onionImg from "../../../assets/onions.svg";
+import pattern from "../../assets/pattern.png";
+import bellPepperImg from "../../assets/bellpepper.svg";
+import sausageImg from "../../assets/sausage.svg";
+import greenTeaImg from "../../assets/greentea.svg";
+import onionImg from "../../assets/onions.svg";
 import { ShoppingCart } from "lucide-react";
 
 const PromoDealsSection = () => {
@@ -226,9 +226,7 @@ const PromoDealsSection = () => {
                   </div>
                 </div>
                 <AddToCartButton
-                  onClick={() =>
-                    console.log(`Added ${product.title} to cart`)
-                  }
+                  onClick={() => console.log(`Added ${product.title} to cart`)}
                   disabled={!product.inStock}
                 />
               </div>
