@@ -158,10 +158,7 @@ const PromoDealsSection = () => {
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center gap-3">
-<<<<<<< HEAD:src/pages/Vendor/components/PromoDeals.jsx
           {" "}
-=======
->>>>>>> 79d15a4 (adjusted witdth and order summary):src/components/VendorComponents/VendorPromoDeals.jsx
           <h2 className="text-xl font-bold text-gray-900">Promo Deals</h2>
           <div className="bg-red-600 text-white px-3 py-1 rounded-md text-sm font-medium">
             Expires in: {formatTime(timeLeft.hours)}:
@@ -178,7 +175,6 @@ const PromoDealsSection = () => {
               key={product.id}
               className="relative bg-white rounded-lg cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-green-300 hover:shadow-lg flex flex-col w-full h-[400px]"
             >
-<<<<<<< HEAD:src/pages/Vendor/components/PromoDeals.jsx
               <div
                 key={product.id}
                 className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md flex flex-col"
@@ -186,12 +182,6 @@ const PromoDealsSection = () => {
               >
                 {/* Image Container */}
                 <div className="relative h-48 w-full bg-white-100 overflow-hidden">
-=======
-              {/* Card content */}
-              <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md flex flex-col w-full h-full">
-                {/* Image */}
-                <div className="relative h-48 w-full bg-white overflow-hidden">
->>>>>>> 79d15a4 (adjusted witdth and order summary):src/components/VendorComponents/VendorPromoDeals.jsx
                   <img
                     src={product.imageUrl}
                     alt={product.title}
@@ -205,10 +195,7 @@ const PromoDealsSection = () => {
                 </div>
                 {/* Info */}
                 <div className="p-4 flex-grow">
-<<<<<<< HEAD:src/pages/Vendor/components/PromoDeals.jsx
                   {" "}
-=======
->>>>>>> 79d15a4 (adjusted witdth and order summary):src/components/VendorComponents/VendorPromoDeals.jsx
                   <div className="text-xs text-gray-500 mb-1">
                     {product.category}
                   </div>
@@ -244,9 +231,7 @@ const PromoDealsSection = () => {
                   </div>
                 </div>
                 <AddToCartButton
-                  onClick={() =>
-                    console.log(`Added ${product.title} to cart`)
-                  }
+                  onClick={() => console.log(`Added ${product.title} to cart`)}
                   disabled={!product.inStock}
                 />
               </div>
