@@ -53,6 +53,7 @@ const VendorCategories = () => {
   const [cart, setCart] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [activeModal, setActiveModal] = useState(null);
+  console.log(cart);
 
   const toggleFavorite = useCallback((productId) => {
     setFavorites((prev) => {

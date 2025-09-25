@@ -4,6 +4,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import Layout from "./components/Layout";
 import VendorStoreFront from "./pages/VendorStoreFront";
 import Scrolltop from "./pages/Scrolltop";
+import OrderSummary from "./pages/OrderSummary";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route
-              path="/"
+              path="/m"
               element={
                 <ErrorBoundary>
                   <Marketplace />
@@ -26,6 +27,14 @@ function App() {
               element={
                 <ErrorBoundary>
                   <VendorStoreFront />
+                </ErrorBoundary>
+              }
+            />
+            <Route
+              path="/"
+              element={
+                <ErrorBoundary>
+                  <OrderSummary />
                 </ErrorBoundary>
               }
             />
