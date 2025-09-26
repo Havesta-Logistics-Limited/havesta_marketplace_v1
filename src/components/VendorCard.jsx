@@ -1,6 +1,6 @@
 import { Lock } from "lucide-react";
 import { Link } from "react-router-dom";
-function ProductCard({
+function VendorCard({
   image,
   name,
   price,
@@ -16,7 +16,7 @@ function ProductCard({
 
   return (
     <Link to={"/vendorstorefront"}>
-      <div className="relative bg-white rounded-xl hover:shadow-green-500 cursor-pointer shadow-md overflow-hidden hover:shadow-md transition-all duration-300">
+      <div className="relative bg-white rounded-xl hover:shadow-green-300 cursor-pointer shadow-md overflow-hidden hover:shadow-md transition-all duration-300">
         {/* Product Image */}
         <div className="relative h-48 overflow-hidden">
           <img
@@ -103,4 +103,4 @@ function ProductCard({
   );
 }
 
-export default ProductCard;
+export default VendorCard;

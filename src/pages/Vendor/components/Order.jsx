@@ -1,7 +1,12 @@
 import React from "react";
+<<<<<<< HEAD:src/components/VendorComponents/Order.jsx
 import astronaut from "../../assets/astronaut.svg";
 import AddedProductsOrder from "./AddedProductsOrder";
 const Order = ({ setCart }) => {
+=======
+import astronaut from "../../../assets/astronaut.svg";
+const Order = () => {
+>>>>>>> ce5d8e2 (Better folder structure):src/pages/Vendor/components/Order.jsx
   return (
     <div className=" absolute top-36 right-24 lg:right-16 xl:right-12 2xl:right-14  ">
       <div className=" relative flex  flex-col items-center text-white  bg-primary h-[450px] z-30  lg:w-[25vw] xl:w-[20vw]  2xl:w-[19vw] rounded-2xl px-6 min-w-[250px]">

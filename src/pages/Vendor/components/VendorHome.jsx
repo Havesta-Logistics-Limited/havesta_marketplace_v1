@@ -1,5 +1,5 @@
 import React from "react";
-import heroBg from "../../assets/venhero-bg.svg";
+import heroBg from "../../../assets/venhero-bg.svg";
 
 import Profile from "./Profile";
 import Order from "./Order";

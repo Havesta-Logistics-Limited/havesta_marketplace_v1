@@ -1,7 +1,7 @@
 import { memo, useCallback } from "react";
 import { Heart, Bell, Star } from "lucide-react";
 import { BiCart } from "react-icons/bi";
-import { useCartStore } from "../../store/CartStore";
+import { useCartStore } from "../../../store/CartStore";
 
 // ===================
 // Subcomponents

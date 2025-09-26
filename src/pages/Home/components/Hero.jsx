@@ -1,6 +1,5 @@
 // src/components/HeroBackground.jsx
-import React from "react";
-import pattern from "../assets/pattern.png";
+import pattern from "../../../assets/pattern.png";
 
 const HeroSection = () => {
   return (
