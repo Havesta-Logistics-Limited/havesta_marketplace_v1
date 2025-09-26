@@ -17,7 +17,7 @@ const Ordersummary = () => {
             <PaymentMethod />
           </div>
 
-          {/* Right Column: Summary Panel */}
+          {/* Right Column: Summary Panel  */}
           <div className="lg:col-span-1 sticky top-24">
             <SummaryPanel />
           </div>
