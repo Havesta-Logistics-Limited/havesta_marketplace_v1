@@ -13,7 +13,7 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route
-              path="/m"
+              path="/"
               element={
                 <ErrorBoundary>
                   <Home />
@@ -26,14 +26,6 @@ function App() {
               element={
                 <ErrorBoundary>
                   <VendorPage />
-                </ErrorBoundary>
-              }
-            />
-            <Route
-              path="/"
-              element={
-                <ErrorBoundary>
-                  <OrderSummary />
                 </ErrorBoundary>
               }
             />
