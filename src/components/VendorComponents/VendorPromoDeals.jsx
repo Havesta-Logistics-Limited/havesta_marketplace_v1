@@ -11,7 +11,7 @@ const PromoDealsSection = () => {
   const products = [
     {
       id: 1,
-      imageUrl: bellPepperImg, // 👈 use the import directly
+      imageUrl: bellPepperImg,
       category: "Coffe & teas",
       title: "Bell Pepper 200g",
       rating: 4.0,
@@ -26,7 +26,7 @@ const PromoDealsSection = () => {
     },
     {
       id: 2,
-      imageUrl: sausageImg, // 👈 here too
+      imageUrl: sausageImg,
       category: "Meat",
       title: "Halal Sausage 350g",
       rating: 3.0,
@@ -41,7 +41,7 @@ const PromoDealsSection = () => {
     },
     {
       id: 3,
-      imageUrl: greenTeaImg, // 👈 here
+      imageUrl: greenTeaImg,
       category: "Coffe & Teas",
       title: "Green Tea 250g",
       rating: 4.2,
@@ -56,7 +56,7 @@ const PromoDealsSection = () => {
     },
     {
       id: 4,
-      imageUrl: onionImg, // 👈 here
+      imageUrl: onionImg,
       category: "Vegetables",
       title: "Onion 1kg",
       rating: 4.0,
@@ -159,14 +159,13 @@ const PromoDealsSection = () => {
 
   // Add to cart button with hover effect
   const AddToCartButton = ({ onClick, disabled, className }) => {
-    // Modify this line
     return (
       <button
         onClick={onClick}
         disabled={disabled}
         className={`mx-auto mb-3 w-3/4 flex items-center gap-2 justify-center px-3 py-1.5 bg-green-600 text-white text-sm font-medium rounded-md transition-all duration-200 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" ${
           disabled ? "opacity-50 cursor-not-allowed" : ""
-        } ${className}`} // And this line
+        } ${className}`}
       >
         <ShoppingCart className="w-4 h-4" />
         <span>Add to Cart</span>
@@ -179,7 +178,6 @@ const PromoDealsSection = () => {
       <div className="mb-8">
         <div className="flex items-center gap-3">
           {" "}
-          {/* <- change here */}
           <h2 className="text-xl font-bold text-gray-900">Promo Deals</h2>
           <div className="bg-red-600 text-white px-3 py-1 rounded-md text-sm font-medium">
             Expires in: {formatTime(timeLeft.hours)}:
@@ -199,7 +197,7 @@ const PromoDealsSection = () => {
             >
               <div
                 key={product.id}
-                className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md flex flex-col" // Added flex and flex-col
+                className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md flex flex-col"
                 style={{ width: "229.09px", height: "388.5px" }}
               >
                 {/* Image Container */}
@@ -225,7 +223,6 @@ const PromoDealsSection = () => {
                 {/* Product Info */}
                 <div className="p-4 flex-grow">
                   {" "}
-                  {/* Added flex-grow */}
                   <div className="text-xs text-gray-500 mb-1">
                     {product.category}
                   </div>
@@ -275,7 +272,7 @@ const PromoDealsSection = () => {
           <div
             className="relative bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-lg shadow-sm border border-yellow-200"
             style={{
-              backgroundImage: `url(${pattern})`, // Use the imported pattern
+              backgroundImage: `url(${pattern})`,
               backgroundSize: "200px",
               backgroundPosition: "center",
             }}
