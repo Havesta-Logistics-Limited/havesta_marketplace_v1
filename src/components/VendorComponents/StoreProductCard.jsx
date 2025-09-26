@@ -1,6 +1,7 @@
 import { memo, useCallback } from "react";
 import { Heart, Bell, Star } from "lucide-react";
 import { BiCart } from "react-icons/bi";
+import { useCartStore } from "../../store/CartStore";
 
 // ===================
 // Subcomponents
@@ -106,9 +107,10 @@ const StoreProductCard = ({
   product,
   isFavorite,
   onToggleFavorite,
-  onAddToCart,
   onOpenModal = () => {},
 }) => {
+  const addToCart = useCartStore((state) => state.addToCart);
+
   const handleToggleFavorite = useCallback(
     (e) => {
       e.preventDefault();
@@ -122,10 +124,10 @@ const StoreProductCard = ({
     (e) => {
       e.preventDefault();
       e.stopPropagation();
-      onAddToCart(product);
+      addToCart(product);
       onOpenModal();
     },
-    [onAddToCart, product, onOpenModal]
+    [addToCart, product, onOpenModal]
   );
 
   return (

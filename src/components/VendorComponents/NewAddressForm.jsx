@@ -40,7 +40,7 @@ const CurrentLocationButton = ({ setMarker, setAddress }) => {
 
     const options = {
       enableHighAccuracy: true,
-      timeout: 15000, // Increased timeout
+      timeout: 15000,
       maximumAge: 60000, // Cache for 1 minute
     };
 
@@ -87,7 +87,7 @@ const CurrentLocationButton = ({ setMarker, setAddress }) => {
           }
         } catch (err) {
           console.error("Reverse geocoding failed:", err);
-          // Still set the coordinates even if reverse geocoding fails
+          // set the coordinates even if reverse geocoding fails
           setAddress(
             `Location: ${latitude.toFixed(6)}, ${longitude.toFixed(6)}`
           );

@@ -11,8 +11,8 @@ import {
   Megaphone,
   Phone,
 } from "lucide-react";
-import harvesterLogo from "../assets/Havesta 1 5.png";
-import noel from "../assets/noel.svg";
+import harvesterLogo from "../../assets/Havesta 1 5.png";
+import noel from "../../assets/noel.svg";
 
 const Header = () => {
   return (

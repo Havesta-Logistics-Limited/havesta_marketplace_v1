@@ -1,10 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Marketplace from "./pages/Marketplace";
-import ErrorBoundary from "./components/ErrorBoundary";
-import Layout from "./components/Layout";
 import VendorStoreFront from "./pages/VendorStoreFront";
 import Scrolltop from "./pages/Scrolltop";
-import OrderSummary from "./pages/OrderSummary";
+import ErrorBoundary from "./components/common/ErrorBoundary";
+import Layout from "./components/common/Layout";
 
 function App() {
   return (

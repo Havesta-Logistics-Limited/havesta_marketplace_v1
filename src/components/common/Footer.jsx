@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 import { TbMail } from "react-icons/tb";
 import { CgFacebook } from "react-icons/cg";
-import Payment from "../assets/Payment.svg";
+import Payment from "../../assets/payment.svg";
 
 const Footer = () => {
   const links = [
